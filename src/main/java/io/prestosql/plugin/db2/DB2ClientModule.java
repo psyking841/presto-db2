@@ -13,11 +13,11 @@
  */
 package io.prestosql.plugin.db2;
 
-import io.prestosql.plugin.jdbc.BaseJdbcConfig;
-import io.prestosql.plugin.jdbc.JdbcClient;
 import com.google.inject.Binder;
 import com.google.inject.Module;
 import com.google.inject.Scopes;
+import io.prestosql.plugin.jdbc.BaseJdbcConfig;
+import io.prestosql.plugin.jdbc.JdbcClient;
 
 import static io.airlift.configuration.ConfigBinder.configBinder;
 
@@ -29,5 +29,6 @@ public class DB2ClientModule
     {
         binder.bind(JdbcClient.class).to(DB2Client.class).in(Scopes.SINGLETON);
         configBinder(binder).bindConfig(BaseJdbcConfig.class);
+        configBinder(binder).bindConfig(DB2JdbcConfig.class);
     }
 }
