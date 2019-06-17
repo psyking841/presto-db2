@@ -12,6 +12,15 @@ Create new properties file inside `etc/catalog` dir:
     connection-password=mypassword
     connection-ssl=true
 
+Or 
+
+    connector.name=db2
+    connection-url=jdbc:db2://ip:port/database:sslConnection=true;
+    connection-user=myuser
+    connection-password=mypassword
+
+**Note, don't forget the colon at the end of the connection-url parameter.**
+
 ## Building Presto DB2 JDBC Plugin
 
     mvn clean install -DskipTests -Dair.check.skip-all=true
